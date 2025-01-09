@@ -9,7 +9,6 @@ from os import SEEK_SET
 from typing import List
 
 from matplotlib import pyplot as plt
-from tqdm import tqdm
 import numpy as np
 import numpy.typing as nptyp
 from typing import Tuple
@@ -246,7 +245,7 @@ class APReader:
                 print(f'\t[ {self.fileName} ] Reading Channels...')
 
             # loop through channels again and access data one after another
-            for channel in tqdm(self.Channels, leave=False):
+            for channel in self.Channels:
                 channel.readData()
 
             if self.verbose:
